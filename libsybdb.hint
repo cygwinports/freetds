@@ -1,0 +1,12 @@
+category: Database Libs
+requires: cygwin libiconv2
+external-source: freetds
+sdesc: "Library for talking to MS SQL and Sybase databases (Sybase lib)"
+ldesc: "FreeTDS is a set of libraries for Unix and Linux that allows your
+programs to natively talk to Microsoft SQL Server and Sybase databases.
+
+Technically speaking, FreeTDS is an open source implementation of the
+TDS (Tabular Data Stream) protocol used by these databases for their own
+clients. It supports many different flavors of the protocol and three
+APIs to access it. Additionally FreeTDS works with other software such
+as Perl and PHP, providing access from those languages as well."
