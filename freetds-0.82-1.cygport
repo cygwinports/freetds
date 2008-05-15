@@ -1,0 +1,25 @@
+DESCRIPTION="Libraries to connect to MS-SQL and Sybase databases"
+HOMEPAGE="http://www.freetds.org/"
+SRC_URI="ftp://ftp.ibiblio.org/pub/Linux/ALPHA/${PN}/stable/${P}.tar.gz"
+
+ctabi=4
+syabi=5
+PKG_NAMES="${PN} ${PN}-devel libct${ctabi} libsybdb${syabi}"
+PKG_HINTS="bin devel libct libsybdb"
+PKG_CONTENTS[0]="--exclude=*.dll etc/ usr/bin/ usr/share/"
+PKG_CONTENTS[1]="usr/include/ usr/lib/"
+PKG_CONTENTS[2]="usr/bin/cygct-${ctabi}.dll"
+PKG_CONTENTS[3]="usr/bin/cygsybdb-${syabi}.dll"
+
+DIFF_EXCLUDES="version.rc"
+
+# override old macros in m4/
+ACLOCAL="aclocal -I /usr/share/aclocal"
+
+CYGCONF_ARGS="
+	--sysconfdir=/etc/${PN}
+	--includedir=/usr/include/${PN}
+	--enable-msdblib
+	--with-tdsver=8.0
+	--without-odbc
+"
