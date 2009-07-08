@@ -1,0 +1,11 @@
+--- origsrc/freetds-0.82/configure.ac	2008-05-07 17:57:52.000000000 -0500
++++ src/freetds-0.82/configure.ac	2008-05-14 23:18:27.921875000 -0500
+@@ -354,7 +354,7 @@
+ AC_C_CONST
+ 
+ case $host_os in
+-mingw*)
++cygwin*|mingw*)
+ 	FREETDS_SYMBOLIC="-no-undefined"
+ 	;;
+ hpux* | linux* | solaris*)

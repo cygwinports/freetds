@@ -1,7 +1,7 @@
-category: Database Libs
-requires: libiconv2
+category: Database
+requires: libct4 libsybdb5 libiconv
 external-source: freetds
-sdesc: "Library for talking to MS SQL and Sybase databases (server lib)"
+sdesc: "Library for talking to MS SQL and Sybase databases (development)"
 ldesc: "FreeTDS is a set of libraries for Unix and Linux that allows your
 programs to natively talk to Microsoft SQL Server and Sybase databases.
 

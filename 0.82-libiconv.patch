@@ -1,14 +1,6 @@
---- origsrc/freetds-0.82/configure.ac	2008-05-07 17:57:52.000000000 -0500
-+++ src/freetds-0.82/configure.ac	2008-05-14 23:18:27.921875000 -0500
-@@ -354,7 +354,7 @@
- AC_C_CONST
- 
- case $host_os in
--mingw*)
-+cygwin*|mingw*)
- 	FREETDS_SYMBOLIC="-no-undefined"
- 	;;
- hpux* | linux* | solaris*)
+LTLIBICONV (=-liconv) is for libraries, LIBICONV (=/usr/lib/libiconv.dll.a) 
+is for programs.
+
 --- origsrc/freetds-0.82/src/ctlib/Makefile.am	2007-11-22 02:44:54.000000000 -0600
 +++ src/freetds-0.82/src/ctlib/Makefile.am	2008-05-15 06:27:01.593750000 -0500
 @@ -18,5 +18,5 @@
@@ -51,14 +43,6 @@
  tdssrv_SOURCES	= unittest.c
 --- origsrc/freetds-0.82/src/tds/Makefile.am	2007-10-30 10:51:06.000000000 -0500
 +++ src/freetds-0.82/src/tds/Makefile.am	2008-05-15 06:33:54.968750000 -0500
-@@ -1,6 +1,6 @@
- # $Id: freetds-0.82-1.src.patch,v 1.1 2008-05-15 21:10:57 yselkowitz Exp $
- 
--SUBDIRS			=	unittests
-+SUBDIRS			=	. unittests
- AM_CPPFLAGS		=	-I$(top_srcdir)/include
- 
- noinst_LTLIBRARIES	=	libtds.la
 @@ -11,7 +11,7 @@
  	tds_checks.c tds_checks.h enum_cap.h log.c \
  	gssapi.c
