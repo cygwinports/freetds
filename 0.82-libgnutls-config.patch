@@ -1,0 +1,14 @@
+--- origsrc/freetds-0.82/configure.ac	2010-06-10 22:08:23.756268700 -0500
++++ src/freetds-0.82/configure.ac	2010-06-10 22:42:22.509878800 -0500
+@@ -623,8 +623,9 @@ AC_ARG_WITH(gnutls,
+ AS_HELP_STRING([--with-gnutls], [build with TLS support]))
+ if test "$with_gnutls" = "yes"; then
+ 	AC_DEFINE(HAVE_GNUTLS, 1, [Define to 1 if you have GNU tls.])
+-	CPPFLAGS="$CPPFLAGS `libgnutls-config --cflags`"
+-	NETWORK_LIBS="$NETWORK_LIBS `libgnutls-config --libs`"
++	PKG_CHECK_MODULES(GNUTLS, gnutls)
++	CPPFLAGS="$CPPFLAGS $GNUTLS_CFLAGS"
++	NETWORK_LIBS="$NETWORK_LIBS $GNUTLS_LIBS"
+ else
+ 	CHECK_OPENSSL
+ fi

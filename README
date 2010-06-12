@@ -10,10 +10,12 @@ APIs to access it. Additionally FreeTDS works with other software such
 as Perl and PHP, providing access from those languages as well. 
 
 Runtime requirements:
-  cygwin-1.7.0-50
-  libgcc1-4.3.2-2
-  libiconv2-1.13-10
-  libreadline6-5.2.13-11
+  cygwin-1.7.5-1
+  libgcc1-4.3.4-3
+  libgnutls26-2.8.6-1
+  libiconv2-1.13.1-1
+  libiodbc2-3.52.7-1
+  libreadline7-6.0.3-2
 
 Build requirements:
   autoconf2.5-2.63-10
@@ -49,60 +51,14 @@ This will create:
   /usr/src/libct4-0.82-X.tar.bz2
   /usr/src/libsybdb5-0.82-X.tar.bz2
   /usr/src/libsybdb-devel-0.82-X.tar.bz2
+  /usr/src/odbc-tds-0.82-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary packages:
-
-(freetys)
-  /etc/freetds/freetds.conf
-  /etc/freetds/locales.conf
-  /etc/freetds/pool.conf
-  /usr/bin/bsqldb.exe
-  /usr/bin/datacopy.exe
-  /usr/bin/defncopy.exe
-  /usr/bin/fisql.exe
-  /usr/bin/freebcp.exe
-  /usr/bin/osql
-  /usr/bin/tdspool.exe
-  /usr/bin/tsql.exe
-  /usr/share/man/man1/bsqldb.1.gz
-  /usr/share/man/man1/bsqlodbc.1.gz
-  /usr/share/man/man1/datacopy.1.gz
-  /usr/share/man/man1/defncopy.1.gz
-  /usr/share/man/man1/fisql.1.gz
-  /usr/share/man/man1/freebcp.1.gz
-  /usr/share/man/man1/osql.1.gz
-  /usr/share/man/man1/tsql.1.gz
-  /usr/share/man/man5/freetds.conf.5.gz
-
-(libct4)
-  /usr/bin/cygct-4.dll
-
-(libsybdb5)
-  /usr/bin/cygsybdb-5.dll
-
-(libsybdb-devel)
-  /usr/include/freetds/bkpublic.h
-  /usr/include/freetds/cspublic.h
-  /usr/include/freetds/cstypes.h
-  /usr/include/freetds/ctpublic.h
-  /usr/include/freetds/sqldb.h
-  /usr/include/freetds/sqlfront.h
-  /usr/include/freetds/sybdb.h
-  /usr/include/freetds/syberror.h
-  /usr/include/freetds/sybfront.h
-  /usr/include/freetds/tds_sysdep_public.h
-  /usr/lib/libct.a
-  /usr/lib/libct.dll.a
-  /usr/lib/libct.la
-  /usr/lib/libsybdb.a
-  /usr/lib/libsybdb.dll.a
-  /usr/lib/libsybdb.la
-
-------------------
-
 Port Notes:
+
+----- version 0.82-2 -----
+Added SSL support and ODBC driver.
 
 ----- version 0.82-1 -----
 Initial release for Cygwin 1.7.
