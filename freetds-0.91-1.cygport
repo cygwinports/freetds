@@ -5,7 +5,6 @@ SRC_URI="ftp://ftp.ibiblio.org/pub/Linux/ALPHA/${PN}/stable/${P}.tar.gz"
 PATCH_URI="
 	0.82-libiconv.patch
 	0.82-no-undefined.patch
-	0.82-libgnutls-config.patch
 "
 
 PKG_NAMES="${PN} libct4 libsybdb5 libsybdb-devel odbc-tds"
@@ -19,7 +18,9 @@ DIFF_EXCLUDES="version.rc"
 
 CYGCONF_ARGS="
 	--sysconfdir=/etc/${PN}
-	--with-tdsver=8.0
+	--enable-msdblib
+	--enable-sybase-compat
+	--with-tdsver=7.1
 	--with-iodbc=/usr
 	--with-gnutls
 "
