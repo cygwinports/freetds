@@ -1,5 +1,5 @@
 category: Database
-requires: libct4 libsybdb5 libgcrypt-devel gnutls-devel libiconv
+requires: libct4 libsybdb5
 external-source: freetds
 sdesc: "Library for talking to MS SQL and Sybase databases (development)"
 ldesc: "FreeTDS is a set of libraries for Unix and Linux that allows your

@@ -18,13 +18,13 @@ DIFF_EXCLUDES="version.rc"
 
 CYGCONF_ARGS="
 	--sysconfdir=/etc/${PN}
+	--disable-static
 	--enable-msdblib
 	--enable-sybase-compat
-	--with-tdsver=7.1
+	--with-tdsver=4.2
 	--with-iodbc=/usr
 	--with-gnutls
 "
-MAKEOPTS+=" DOCDIR=doc/${PN}"
 
 src_compile() {
 	cd ${S}
@@ -33,3 +33,11 @@ src_compile() {
 	cygconf
 	cygmake FREETDS_ODBC_MODULE="-module -avoid-version"
 }
+
+src_install() {
+	cd ${B}
+	cyginstall DOCDIR=doc/${PN}
+	make_etc_defaults /etc/${PN}
+}
+
+KEEP_LA_FILES="none"
