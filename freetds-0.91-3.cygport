@@ -19,6 +19,7 @@ DIFF_EXCLUDES="version.rc"
 CYGCONF_ARGS="
 	--sysconfdir=/etc/${PN}
 	--disable-static
+	--enable-krb5
 	--enable-msdblib
 	--enable-sybase-compat
 	--with-tdsver=4.2
