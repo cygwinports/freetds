@@ -1,0 +1,60 @@
+NAME="freetds"
+VERSION=0.91
+RELEASE=4
+CATEGORY="Database"
+SUMMARY="Libraries to connect to MS-SQL and Sybase databases"
+DESCRIPTION="FreeTDS is a set of libraries for Unix and Linux that allows your
+programs to natively talk to Microsoft SQL Server and Sybase databases.
+Technically speaking, FreeTDS is an open source implementation of the
+TDS (Tabular Data Stream) protocol used by these databases for their own
+clients. It supports many different flavors of the protocol and three
+APIs to access it. Additionally FreeTDS works with other software such
+as Perl and PHP, providing access from those languages as well."
+HOMEPAGE="http://www.freetds.org/"
+SRC_URI="ftp://ftp.freetds.org/pub/freetds/stable/freetds-${VERSION}.tar.gz"
+
+PATCH_URI="
+	0.82-libiconv.patch
+	0.82-no-undefined.patch
+"
+
+PKG_NAMES="${PN} libct4 libsybdb5 libsybdb-devel odbc-tds"
+freetds_SUMMARY="MS-SQL and Sybase database utilities"
+freetds_CONTENTS="--exclude=*.dll etc/ usr/bin/ usr/share/"
+libct4_SUMMARY="${SUMMARY} (CT-lib)"
+libct4_CONTENTS="usr/bin/cygct-4.dll"
+libsybdb5_SUMMARY="${SUMMARY} (Sybase lib)"
+libsybdb5_CONTENTS="usr/bin/cygsybdb-5.dll"
+libsybdb_devel_SUMMARY="${SUMMARY} (development)"
+libsybdb_devel_CONTENTS="--exclude=*odbc* usr/include/ usr/lib/"
+odbc_tds_SUMMARY="ODBC connector for MS-SQL and Sybase databases"
+odbc_tds_CONTENTS="usr/lib/*tdsodbc*"
+
+DIFF_EXCLUDES="version.rc"
+
+CYGCONF_ARGS="
+	--sysconfdir=/etc/${PN}
+	--disable-static
+	--enable-krb5
+	--enable-msdblib
+	--enable-sybase-compat
+	--with-tdsver=4.2
+	--with-iodbc=/usr
+	--with-gnutls
+"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	cd ${B}
+	cygconf
+	cygmake FREETDS_ODBC_MODULE="-module -avoid-version" LIBS="-lgcrypt"
+}
+
+src_install() {
+	cd ${B}
+	cyginstall DOCDIR=doc/${PN}
+	make_etc_defaults /etc/${PN}
+}
+
+KEEP_LA_FILES="none"
