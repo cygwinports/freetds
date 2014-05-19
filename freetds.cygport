@@ -1,6 +1,6 @@
 NAME="freetds"
-VERSION=0.91
-RELEASE=4
+VERSION=0.91.103
+RELEASE=1
 CATEGORY="Database"
 SUMMARY="Libraries to connect to MS-SQL and Sybase databases"
 DESCRIPTION="FreeTDS is a set of libraries for Unix and Linux that allows your
@@ -12,7 +12,6 @@ APIs to access it. Additionally FreeTDS works with other software such
 as Perl and PHP, providing access from those languages as well."
 HOMEPAGE="http://www.freetds.org/"
 SRC_URI="ftp://ftp.freetds.org/pub/freetds/stable/freetds-${VERSION}.tar.gz"
-
 PATCH_URI="
 	0.82-libiconv.patch
 	0.82-no-undefined.patch
