@@ -1,5 +1,5 @@
 NAME="freetds"
-VERSION=0.91.103
+VERSION=0.91.112
 RELEASE=1
 CATEGORY="Database"
 SUMMARY="Libraries to connect to MS-SQL and Sybase databases"
