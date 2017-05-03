@@ -1,5 +1,5 @@
 NAME="freetds"
-VERSION=0.91.112
+VERSION=1.00.37
 RELEASE=1
 CATEGORY="Database"
 SUMMARY="Libraries to connect to MS-SQL and Sybase databases"
@@ -13,7 +13,6 @@ as Perl and PHP, providing access from those languages as well."
 HOMEPAGE="http://www.freetds.org/"
 SRC_URI="ftp://ftp.freetds.org/pub/freetds/stable/freetds-${VERSION}.tar.gz"
 PATCH_URI="
-	0.82-libiconv.patch
 	0.82-no-undefined.patch
 "
 
@@ -29,7 +28,7 @@ libsybdb_devel_CONTENTS="--exclude=*odbc* usr/include/ usr/lib/"
 odbc_tds_SUMMARY="ODBC connector for MS-SQL and Sybase databases"
 odbc_tds_CONTENTS="usr/lib/*tdsodbc*"
 
-DIFF_EXCLUDES="version.rc"
+DIFF_EXCLUDES="freetds.conf.5 version.*"
 
 CYGCONF_ARGS="
 	--sysconfdir=/etc/${PN}
